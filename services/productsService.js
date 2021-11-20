@@ -1,5 +1,19 @@
 const Products = require('../models/productsModel');
 
+const getAllProducts = async () => {
+  const data = await Products.getAll();
+  return data;
+};
+
+const getProductsById = async (id) => {
+  const productExists = await Products.getById(id);
+  if (!productExists) {
+    return { err:
+      { code: 'invalid_data', message: 'Wrong id format' } };
+  }
+  return productExists;
+};
+
 const insertProduct = async (name, quantity) => {
   const productExists = await Products.productExists(name);
   if (name.length < 6) {
@@ -20,4 +34,4 @@ const insertProduct = async (name, quantity) => {
   return Products.insert(name, quantity);
 };
 
-module.exports = { insertProduct };
+module.exports = { getAllProducts, getProductsById, insertProduct };

@@ -13,6 +13,8 @@ app.get('/', (_request, response) => {
 
 const productsController = require('./controllers/productsController');
 
+app.get('/products', productsController.getAllProducts);
+app.get('/products/:id', productsController.getProductsById);
 app.post('/products', productsController.insertProduct);
 
 app.listen(PORT, () => console.log(`Servidor na porta ${PORT}`));
