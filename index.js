@@ -17,5 +17,6 @@ app.get('/products', productsController.getAllProducts);
 app.get('/products/:id', productsController.getProductsById);
 app.post('/products', productsController.insertProduct);
 app.put('/products/:id', productsController.updateProducts);
+app.delete('/products/:id', productsController.removeProducts);
 
 app.listen(PORT, () => console.log(`Servidor na porta ${PORT}`));

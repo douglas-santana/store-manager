@@ -2,8 +2,8 @@ const Products = require('../models/productsModel');
 const { verifyProductService } = require('../utils/productServiceVerify');
 
 const getAllProducts = async () => {
-  const data = await Products.getAll();
-  return data;
+  const allProducts = await Products.getAll();
+  return allProducts;
 };
 
 const getProductsById = async (id) => {
@@ -32,4 +32,10 @@ const updateProducts = async (id, name, quantity) => {
   return data;
 };
 
-module.exports = { getAllProducts, getProductsById, insertProduct, updateProducts };
+const removeProducts = async (id) => {
+  const productRemoved = await Products.remove(id);
+  console.log(productRemoved);
+  return productRemoved;
+};
+
+module.exports = { getAllProducts, getProductsById, insertProduct, updateProducts, removeProducts };
