@@ -21,4 +21,11 @@ const insertSale = async (items) => {
   return Sales.insert(items);
 };
 
-module.exports = { getAllSales, getSaleById, insertSale };
+const updateSale = async (id, items) => {
+  const verifys = await verifySalesService(items);
+  if (verifys) return verifys;
+  const data = await Sales.update(id, items);
+  return data;
+};
+
+module.exports = { getAllSales, getSaleById, insertSale, updateSale };

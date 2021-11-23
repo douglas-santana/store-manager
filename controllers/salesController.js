@@ -28,4 +28,16 @@ const insertSale = async (req, res) => {
   }
 };
 
-module.exports = { getAllSales, getSaleById, insertSale };
+const updateSale = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const items = req.body;
+    const productUpdated = await Sales.updateSale(id, items);
+    if (!productUpdated.err) return res.status(200).json(productUpdated);
+    await verifySaleController(res, items);
+  } catch (error) {
+    res.status(500).json({ message: 'Problema ao atualizar' });
+  }
+};
+
+module.exports = { getAllSales, getSaleById, insertSale, updateSale };

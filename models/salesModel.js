@@ -12,12 +12,21 @@ const getById = async (id) => {
   return db.collection('sales').findOne({ _id: ObjectId(id) });
 };
 
-const insert = async (data) => {
+const insert = async (items) => {
   const db = await connection();
   const { insertedId: _id } = await db.collection('sales').insertOne({
-    itensSold: data,
+    itensSold: items,
   });
-  return { _id, itensSold: data };
+  return { _id, itensSold: items };
 };
 
-module.exports = { getAll, getById, insert };
+const update = async (id, items) => {
+  const db = await connection();
+  db.collection('products').updateOne(
+    { _id: ObjectId(id) },
+    { $set: { itensSold: items } },
+  );
+  return { _id: ObjectId(id), itensSold: items };
+};
+
+module.exports = { getAll, getById, insert, update };
