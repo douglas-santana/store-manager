@@ -22,11 +22,17 @@ const insert = async (items) => {
 
 const update = async (id, items) => {
   const db = await connection();
-  db.collection('products').updateOne(
+  db.collection('sales').updateOne(
     { _id: ObjectId(id) },
     { $set: { itensSold: items } },
   );
   return { _id: ObjectId(id), itensSold: items };
 };
 
-module.exports = { getAll, getById, insert, update };
+const remove = async (id) => {
+  const db = await connection();
+  if (!ObjectId.isValid(id)) return null;
+  return db.collection('sales').deleteOne({ _id: ObjectId(id) });
+};
+
+module.exports = { getAll, getById, insert, update, remove };
