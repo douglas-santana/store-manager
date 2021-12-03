@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do projeto Store Manager!
 
-### Fonte *Trybe* adaptado.
+### Fonte: *Trybe*, adaptado.
 
 ---
 
