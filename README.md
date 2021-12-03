@@ -6,7 +6,7 @@
 
 ![image](https://user-images.githubusercontent.com/78758947/144609819-58b7a7af-263a-47df-869f-52de65931f7f.png)
 
-## *A API construída trata-se de um sistema de gerenciamento de vendas, onde será possível criar, visualizar, deletar e atualizar produtos e vendas.*
+## *A API construída em Node.js e Express.js trata-se de um sistema de gerenciamento de vendas, onde será possível criar, visualizar, deletar e atualizar produtos e vendas.*
 
 Esse projeto foi criado com integração com o **MongoDB** e **arquitetura MSC**:
 - **Camada de Modelo (M)**: Arquivos onde iremos executar as operações do banco de dados, como criar conexões e executar queries.
